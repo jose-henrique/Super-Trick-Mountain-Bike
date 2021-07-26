@@ -27,6 +27,8 @@ var Charcter = {
     height:100,
     horizontalMoviment: 0,
     qtyMove: 2.5,
+    verticalVelocity: 0,
+    gravity: 1.5,
     desenha: () => {
         context.fillStyle = Charcter.color
         context.fillRect(Charcter.posx, Charcter.posy, Charcter.width, Charcter.height)
@@ -38,13 +40,21 @@ var Charcter = {
             Charcter.horizontalMoviment = 0
         }
 
+
         else if (Charcter.posx < 0){
             Charcter.posx = 0.5
             Charcter.horizontalMoviment = 0
 
         }
 
+        if (Charcter.posy + Charcter.height  > Ground.posy){
+            Charcter.posy = Charcter.posy - Charcter.height
+            Charcter.verticalVelocity = 0
+        }
+
         Charcter.posx += Charcter.horizontalMoviment
+        Charcter.verticalVelocity += Charcter.gravity
+        Charcter.posy += Charcter.verticalVelocity
         
     }
 }
