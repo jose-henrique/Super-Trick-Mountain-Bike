@@ -5,7 +5,6 @@ const SCREEN_WIDTH = 950
 const SCREEN_HEIGHT = 530
 
 
-var axisX = 250
 
 var BackGround = {
     color: "#96C3EB",
@@ -30,15 +29,30 @@ var Charcter = {
     verticalVelocity: 0,
     gravity: 1.5,
     jumpForce: 18,
+    qtyJump: 0,
+    maxJump: 1,
     jump: () => {
-        Charcter.verticalVelocity -= Charcter.jumpForce
+        if (Charcter.qtyJump < Charcter.maxJump){
+
+            Charcter.verticalVelocity -= Charcter.jumpForce
+            Charcter.qtyJump += 1
+        }
     },
     desenha: () => {
         context.fillStyle = Charcter.color
         context.fillRect(Charcter.posx, Charcter.posy, Charcter.width, Charcter.height)
     },
     atualiza: () => {
+        Charcter.verticalVelocity += Charcter.gravity
+        Charcter.posy += Charcter.verticalVelocity
+
+        if (Charcter.posy > Ground.posy - Charcter.height){
+            Charcter.posy = Ground.posy - Charcter.height
+            Charcter.verticalVelocity = 0
+            Charcter.qtyJump = 0
+        }
         
+
         if (Charcter.posx + Charcter.width >= SCREEN_WIDTH){
             Charcter.posx = (SCREEN_WIDTH - Charcter.width) - 0.5
             Charcter.horizontalMoviment = 0
@@ -51,15 +65,9 @@ var Charcter = {
 
         }
 
-        else if (Charcter.posy > 430 - Charcter.height){
-            //Charcter.posy = 430 - Charcter.height
-            Charcter.posy = 12
-            
-        }
 
         Charcter.posx += Charcter.horizontalMoviment
-        Charcter.verticalVelocity += Charcter.gravity
-        Charcter.posy += Charcter.verticalVelocity
+        
         
     }
 }
