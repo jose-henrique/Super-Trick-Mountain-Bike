@@ -29,6 +29,10 @@ var Charcter = {
     qtyMove: 2.5,
     verticalVelocity: 0,
     gravity: 1.5,
+    jumpForce: 18,
+    jump: () => {
+        Charcter.verticalVelocity -= Charcter.jumpForce
+    },
     desenha: () => {
         context.fillStyle = Charcter.color
         context.fillRect(Charcter.posx, Charcter.posy, Charcter.width, Charcter.height)
@@ -47,9 +51,10 @@ var Charcter = {
 
         }
 
-        if (Charcter.posy + Charcter.height  > Ground.posy){
-            Charcter.posy = Charcter.posy - Charcter.height
-            Charcter.verticalVelocity = 0
+        else if (Charcter.posy > 430 - Charcter.height){
+            //Charcter.posy = 430 - Charcter.height
+            Charcter.posy = 12
+            
         }
 
         Charcter.posx += Charcter.horizontalMoviment
@@ -95,6 +100,7 @@ function loop(){
 function handleKeyDown(event){
 
     const KeyDown = event.key
+    const code = event.keyCode
 
     if (KeyDown == "ArrowRight"){
         Charcter.horizontalMoviment += Charcter.qtyMove;
@@ -102,6 +108,9 @@ function handleKeyDown(event){
     else if (KeyDown == "ArrowLeft"){
         Charcter.horizontalMoviment -= Charcter.qtyMove;
     };
+    if (code == 32){
+        Charcter.jump()
+    }
 
 }
 
