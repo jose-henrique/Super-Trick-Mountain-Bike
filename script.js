@@ -1,6 +1,7 @@
 import BackGround  from "./Game_objects/BackGround.js";
 import Charcter  from "./Game_objects/Charcter.js";
 import Ground from "./Game_objects/Ground.js";
+import { handleKeyDown, handleKeyUP } from "./Game_utils/handleKeys.js"
 
 const canvas = document.getElementById("Game")
 export const context = canvas.getContext("2d")
@@ -31,36 +32,6 @@ function loop(){
 
 }
 
-function handleKeyDown(event){
-
-    const KeyDown = event.key
-    const code = event.keyCode
-
-    if (KeyDown == "ArrowRight"){
-        Charcter.horizontalMoviment += Charcter.qtyMove;
-    }
-    else if (KeyDown == "ArrowLeft"){
-        Charcter.horizontalMoviment -= Charcter.qtyMove;
-    };
-    if (code == 32){
-        Charcter.jump()
-    }
-
-}
-
-function handleKeyUP(event){
-
-    const KeyUp = event.key
-
-    if (KeyUp == "ArrowRight"){
-        Charcter.horizontalMoviment = 0
-    }
-    else if (KeyUp == "ArrowLeft"){
-        Charcter.horizontalMoviment = 0
-    };
-
-}
-
 function main(){
     loop()
 
@@ -68,7 +39,5 @@ function main(){
     document.addEventListener("keyup", handleKeyUP)
 
 }
-
-
 
 main()
