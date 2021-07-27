@@ -1,6 +1,7 @@
 import { context } from "../script.js";
 import Ground from "./Ground.js"
-import { arrowLeftPressed, arrowRightPressed, spaceBarPressed } from "../Game_utils/handleKeys.js"
+import { arrowLeftPressed, arrowRightPressed, spaceBarPressed } from "../Game_utils/handleKeys.js";
+import { firstTrick } from "../Game_utils/Combo_Stucture.js";
 
 const SCREEN_WIDTH = 950
 const SCREEN_HEIGHT = 530
@@ -64,6 +65,9 @@ var Charcter = {
         context.fillRect(Charcter.posx, Charcter.posy, Charcter.width, Charcter.height)
     },
     atualiza: () => {
+        firstTrick()
+        var trick = firstTrick()
+        console.log(trick)
         Charcter.verticalVelocity += Charcter.gravity
         Charcter.posy += Charcter.verticalVelocity
 
