@@ -13,7 +13,7 @@ var Charcter = {
     width: 48,
     height: 48,
     horizontalMoviment: 0,
-    qtyMove: 1,
+    qtyMove: 0.5,
     verticalVelocity: 0,
     gravity: 1.5,
     jumpForce: 18,
@@ -65,9 +65,8 @@ var Charcter = {
         context.fillRect(Charcter.posx, Charcter.posy, Charcter.width, Charcter.height)
     },
     atualiza: () => {
-        firstTrick()
-        var trick = firstTrick()
-        console.log(trick)
+        // firstTrick()
+        // var trick = firstTrick()
         Charcter.verticalVelocity += Charcter.gravity
         Charcter.posy += Charcter.verticalVelocity
 

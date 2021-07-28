@@ -1,69 +1,157 @@
 import { 
     arrowLeftPressed, 
     arrowUpPressed, 
-    arrowRightPressed, 
+    arrowRightPressed,
+    arrowDownPressed,
     spaceBarPressed } from "./handleKeys.js";
-import { frames } from "../script.js"
 
-var key1 = false
-var key2 = false
-var key3 = false
+import Charcter  from "../Game_objects/Charcter.js";
 
-// var initial = new Date.now()
-// var final = new Date()
+
+
+
+
+var key1_1 = false
+var key2_1 = false
+var key3_1 = false
 
 function firstTrick(){
-    if (arrowUpPressed){
-        if(!key1 && !key2 && !key3){
-            key1 = true
+
+    var LastKey = 0
+    var FirstKey = 0
+
+    
+
+    if (arrowLeftPressed){
+        FirstKey = Date.now()
+        if(!key1_1 && !key2_1 && !key3_1){
+            key1_1 = true
         }
     }
     
-    if (arrowLeftPressed){
-        if (key1 && !key2 && !key3){
-            key2 = true
+    if (arrowUpPressed){
+        if (key1_1 && !key2_1 && !key3_1){
+            key2_1 = true
         }
     }
     
     
     if (spaceBarPressed){
-        var final = Date.now()
-        if (key1 && key2 && !key3){
-            key3 = true
+        LastKey = Date.now()
+        if (key1_1 && key2_1 && !key3_1){
+            key3_1 = true
         }
     }
 
-    if (final - initial > 300){
-        key1 = false
-        key2 = false
-        key3 = false
+    if (LastKey - FirstKey > 300){
+        key1_1 = false
+        key2_1 = false
+        key3_1 = false
     }
 
-    if (key1){
-        var initial = Date.now()
-    }
-
-    if(final){
-
-        console.log(`final: ${final}`)
-    }
-
-    if(initial){
-
-        console.log(`inicial: ${initial}`)
-    }
-
-    if(initial && final){
-        console.log(final-initial)
-    }
-
-
-    if (key1 && key2 && key3){
-        key1 = false
-        key2 = false
-        key3 = false 
-        return true
+    if (key1_1 && key2_1 && key3_1){
+        key1_1 = false
+        key2_1 = false
+        key3_1 = false
+        console.log("oi")
+        
+        if(Charcter.horizontalMoviment > 1 || Charcter.horizontalMoviment < -3){
+            return true
+        }
     }
 }
 
-export {firstTrick}
+
+
+var key1_2 = false
+var key2_2 = false
+var key3_2 = false
+
+function secondTrick(){
+    var LastKey = 0
+    var FirstKey = 0
+    
+    if (arrowRightPressed){
+        FirstKey = Date.now()
+        if(!key1_2 && !key2_2 && !key3_2){
+            key1_2 = true
+        }
+    }
+    
+    if (arrowDownPressed){
+        if (key1_2 && !key2_2 && !key3_2){
+            key2_2 = true
+        }
+    }
+    
+    
+    if (spaceBarPressed){
+        LastKey = Date.now()
+        if (key1_2 && key2_2 && !key3_2){
+            key3_2 = true
+        }
+    }
+
+    if (LastKey - FirstKey > 300){
+        key1_2 = false
+        key2_2 = false
+        key3_2 = false
+    }
+
+    if (key1_2 && key2_2 && key3_2){
+        key1_2 = false
+        key2_2 = false
+        key3_2 = false
+        if(Charcter.horizontalMoviment > 3 || Charcter.horizontalMoviment < -3){
+            return true
+        }
+    }
+}
+
+
+var key1_3 = false
+var key2_3 = false
+var key3_3 = false
+
+function thirdTrick(){
+    var LastKey = 0
+    var FirstKey = 0
+    
+    if (arrowUpPressed){
+        FirstKey = Date.now()
+        if(!key1_3 && !key2_3 && !key3_3){
+            key1_3 = true
+        }
+    }
+    
+    if (arrowRightPressed){
+        if (key1_3 && !key2_3 && !key3_3){
+            key2_3 = true
+        }
+    }
+    
+    
+    if (arrowLeftPressed){
+        LastKey = Date.now()
+        if (key1_3 && key2_3 && !key3_3){
+            key3_3 = true
+        }
+    }
+
+    if (LastKey - FirstKey > 300){
+        key1_3 = false
+        key2_3 = false
+        key3_3 = false
+    }
+
+    if (key1_3 && key2_3 && key3_3){
+        key1_3 = false
+        key2_3 = false
+        key3_3 = false
+        if(Charcter.horizontalMoviment > 3 || Charcter.horizontalMoviment < -3){
+            return true
+        }
+    }
+}
+
+export {firstTrick, secondTrick, thirdTrick}

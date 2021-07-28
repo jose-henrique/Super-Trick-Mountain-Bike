@@ -2,6 +2,7 @@ var arrowUpPressed = false;
 var arrowRightPressed = false;
 var arrowLeftPressed = false;
 var spaceBarPressed = false;
+var arrowDownPressed = false;
 
 function handleKeyDown(event){
 
@@ -16,6 +17,10 @@ function handleKeyDown(event){
     };
     if (KeyDown == "ArrowUp"){
         arrowUpPressed = true
+    }
+
+    if (KeyDown == "ArrowDown"){
+        arrowDownPressed = true
     }
 
     if (code == 32){
@@ -41,6 +46,10 @@ function handleKeyUP(event){
     else if (KeyUp == "ArrowLeft"){
         arrowLeftPressed = false
     }
+
+    if (KeyUp == "ArrowDown"){
+        arrowDownPressed = false
+    }
     
     if (code == 32){
         spaceBarPressed = false
@@ -53,6 +62,7 @@ export {
     handleKeyUP, 
     arrowRightPressed, 
     arrowLeftPressed, 
-    arrowUpPressed, 
-    spaceBarPressed,
+    arrowUpPressed,
+    arrowDownPressed, 
+    spaceBarPressed
 };
