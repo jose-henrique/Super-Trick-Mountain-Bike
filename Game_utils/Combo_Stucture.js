@@ -8,9 +8,6 @@ import {
 import Charcter  from "../Game_objects/Charcter.js";
 
 
-
-
-
 var key1_1 = false
 var key2_1 = false
 var key3_1 = false
@@ -53,7 +50,6 @@ function firstTrick(){
         key1_1 = false
         key2_1 = false
         key3_1 = false
-        console.log("oi")
         
         if(Charcter.horizontalMoviment > 1 || Charcter.horizontalMoviment < -3){
             return true

@@ -34,6 +34,7 @@ var Combo_Object = {
             Combo_Object.toDraw = "third"
             setTimeout(() => {Combo_Object.is_draw = false},[500])
         }
+
     },
     draw: () => {
         if(Combo_Object.toDraw == "first"){
