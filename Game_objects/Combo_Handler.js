@@ -7,15 +7,18 @@ function Combo_Handler(){
     thirdTrick()
 }
 
+const Sprites = new Image();
+Sprites.src = "../Sprites/words.png";
+
 
 var Combo_Object = {
     is_draw: false,
     toDraw: null,
     refresh: () => {
+
         var firstTrickStore = firstTrick()
         var secondTrickStore = secondTrick()
         var thirdTrickStore = thirdTrick()
-
         
         if (firstTrickStore){
             Combo_Object.is_draw = true
@@ -38,15 +41,23 @@ var Combo_Object = {
     },
     draw: () => {
         if(Combo_Object.toDraw == "first"){
-            context.fillStyle = "#fff"
-            context.font = "36px Arial"
-            context.fillText("Duplo twist carpado reverso", 200, 68) 
+            context.drawImage(
+                Sprites,
+                20, 20,
+                332, 127,
+                200, 68,
+                332, 127
+            )
         }
 
         if(Combo_Object.toDraw == "second"){
-            context.fillStyle = "#fff"
-            context.font = "36px Arial"
-            context.fillText("Cateto adjacente complexo", 200, 68) 
+            context.drawImage(
+                Sprites,
+                416, 20,
+                299, 126,
+                200, 68,
+                299, 126
+            )
         }
 
         if(Combo_Object.toDraw == "third"){

@@ -1,4 +1,4 @@
-import { context } from "../script.js"
+import { context, sprite } from "../script.js"
 
 var BackGround = {
     color: "#96C3EB",
@@ -7,8 +7,13 @@ var BackGround = {
     width: 950,
     height: 530,
     desenha: () => {
-        context.fillStyle = BackGround.color
-        context.fillRect(BackGround.posx, BackGround.posy, BackGround.width, BackGround.height)
+        context.drawImage(
+            sprite,
+            20, 470,
+            BackGround.width, BackGround.height,
+            BackGround.posx, BackGround.posy,
+            BackGround.width, BackGround.height
+        )
     }
 }
 

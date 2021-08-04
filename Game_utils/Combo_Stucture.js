@@ -40,7 +40,7 @@ function firstTrick(){
         }
     }
 
-    if (LastKey - FirstKey > 300){
+    if (LastKey - FirstKey > 400){
         key1_1 = false
         key2_1 = false
         key3_1 = false
@@ -51,7 +51,7 @@ function firstTrick(){
         key2_1 = false
         key3_1 = false
         
-        if(Charcter.horizontalMoviment > 1 || Charcter.horizontalMoviment < -3){
+        if(Charcter.horizontalMoviment > 2 || Charcter.horizontalMoviment < -2){
             return true
         }
     }
@@ -88,7 +88,7 @@ function secondTrick(){
         }
     }
 
-    if (LastKey - FirstKey > 300){
+    if (LastKey - FirstKey > 400){
         key1_2 = false
         key2_2 = false
         key3_2 = false
@@ -98,7 +98,7 @@ function secondTrick(){
         key1_2 = false
         key2_2 = false
         key3_2 = false
-        if(Charcter.horizontalMoviment > 3 || Charcter.horizontalMoviment < -3){
+        if(Charcter.horizontalMoviment > 1 || Charcter.horizontalMoviment < -1){
             return true
         }
     }
@@ -134,7 +134,7 @@ function thirdTrick(){
         }
     }
 
-    if (LastKey - FirstKey > 300){
+    if (LastKey - FirstKey > 400){
         key1_3 = false
         key2_3 = false
         key3_3 = false
@@ -144,7 +144,7 @@ function thirdTrick(){
         key1_3 = false
         key2_3 = false
         key3_3 = false
-        if(Charcter.horizontalMoviment > 3 || Charcter.horizontalMoviment < -3){
+        if(Charcter.horizontalMoviment > 2 || Charcter.horizontalMoviment < -2){
             return true
         }
     }
